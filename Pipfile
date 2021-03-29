@@ -5,6 +5,10 @@ name = "pypi"
 
 [packages]
 gym = "*"
+pylint = "*"
+pillow = "*"
+websockets = "*"
+websocket-client = "*"
 
 [dev-packages]
 
