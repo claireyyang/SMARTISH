@@ -36,7 +36,7 @@ class DiscreteActionSpace:
         '''
         return self.open_ai_gym_space.sample()
 
-    def get_open_ai_gym_action_space(self):
+    def getOpenAIGymActionSpace(self):
         '''
         Get the underlying Open AI gym action space
         '''

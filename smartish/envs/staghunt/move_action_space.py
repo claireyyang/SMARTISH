@@ -39,7 +39,7 @@ class StaghuntMoveActionSpace(DiscreteActionSpace):
         super().__init__(5)
 
     @staticmethod
-    def get_movement(action: StaghuntMoveAction) -> Tuple[int,int]:
+    def getMovement(action: StaghuntMoveAction) -> Tuple[int,int]:
         '''
         Converts a discrete action to a 2-tuple of movements in the
         x and y direction respectively.
@@ -47,7 +47,7 @@ class StaghuntMoveActionSpace(DiscreteActionSpace):
         return StaghuntMoveActionSpace.MOVEMENT_FROM_ACTION[action]
 
     @staticmethod
-    def get_action(movement: Tuple[int,int]) -> StaghuntMoveAction:
+    def getAction(movement: Tuple[int,int]) -> StaghuntMoveAction:
         '''
         Converts a movement in the x and y direction to the corresponding
         move action within the stag hunt move action space.
