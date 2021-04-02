@@ -7,7 +7,7 @@ class Board:
     '''
     A class that holds the basic components for an environment model, viewer, observation_space
     '''
-    def __init__(self, board: dict = {}) -> None:
+    def __init__(self, board: dict = dict()) -> None:
         self._board: dict = board
 
     def getBoard(self) -> dict:
