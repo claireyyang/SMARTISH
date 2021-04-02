@@ -18,7 +18,10 @@ This repository contains a testbed that contains a partially observable 3-player
  - python3 -m pip install .
  - python3 -m build --sdist --wheel .
 
-### Running Pylint and MyPy for Type Checking
-  - pylint smartish
-  - mypy smartish
-  - stubgen smartish -o types
+### Before Pushing Do These Things 
+  1. Lint the code: `pylint smartish`
+  2. Type check the code `mypy smartish`
+  3. Lint the tests: `pylint tests`
+  4. Type check the tests `pylint tests`
+  5. Run the unit tests `pytest tests`
+  6. Generate new interface files (if appropriate) `stubgen smartish -o types`
