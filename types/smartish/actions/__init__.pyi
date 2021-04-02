@@ -1,1 +1,2 @@
 from smartish.actions.discrete_action_space import DiscreteActionSpace as DiscreteActionSpace
+from smartish.actions.social_preference_action_space import SocialPreferenceActionSpace as SocialPreferenceActionSpace, SocialPreferenceConversionError as SocialPreferenceConversionError
