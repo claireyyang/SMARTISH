@@ -4,6 +4,8 @@ A staghunt-specific forward model that specifies how the agents move on the boar
 from ..generic import State
 from ..generic import ForwardModel
 from ..actions import DiscreteActionSpace
+from . import StaghuntMoveActionSpace
+from . import StaghuntMoveAction
 from enum import IntEnum
 
 

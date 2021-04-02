@@ -6,3 +6,6 @@ from smartish.envs.staghunt.staghunt_base_env import StaghuntBaseEnv
 from smartish.envs.staghunt.staghunt_board import StaghuntBoard
 from smartish.envs.staghunt.staghunt_forward_model import StaghuntForwardModel
 from smartish.envs.staghunt.staghunt_human_playable_env import StaghuntHumanPlayableEnv
+
+from smartish.envs.staghunt.move_action_space import (StaghuntMoveActionSpace,
+                                                      StaghuntMoveAction)
