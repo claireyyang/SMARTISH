@@ -30,13 +30,13 @@ class ForwardModel:
         '''
         # TODO
 
-    def getObservationFromCurrentState(self, state : State, agent : BaseAgent) -> Observation:
+    def getObservationFromCurrentState(self, state : State, agent : Agent) -> Observation:
         '''
         Returns the observation from the current state from the point of view of the specified agent
         '''
         return state.getObservationFromCurrentState(agent)
 
-    def getObservationsFromCurrentState(self, state : State, agents : list[BaseAgent]) -> list[Observation]:
+    def getObservationsFromCurrentState(self, state : State, agents : list[Agent]) -> list[Observation]:
         '''
         Returns the observations from the current state for each agent in the list
         '''

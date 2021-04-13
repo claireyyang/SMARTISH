@@ -7,7 +7,9 @@ from typing import List, Tuple, Dict, Optional
 from smartish.actions import Action, SocialPreferenceAction, SignalingAction
 from smartish.agents import AgentId, CognitiveHierarchy
 from smartish.agents.strategy import AgentStrategy
-from smartish.envs import Observation, State
+from smartish.envs.generic import Observation, State
+
+
 class AgentMemory():
     ''' The base class for representing an agent's memory. '''
     def __init__(self, memoryLoadFile = None):

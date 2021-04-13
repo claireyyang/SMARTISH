@@ -7,7 +7,7 @@ from smartish.actions import (
     DiscreteActionSpace)
 from smartish.agents.agent_memory import AgentMemory
 from smartish.agents.strategy import AgentStrategy
-from smartish.envs import State, Observation
+from smartish.envs.generic import State, Observation
 
 AgentId = NewType('AgentId', int)
 class Agent():

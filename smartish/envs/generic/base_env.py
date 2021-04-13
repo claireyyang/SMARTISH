@@ -4,7 +4,7 @@ A class containing the base environment that all of the environments in each sim
 from . import ForwardModel
 from . import Viewer
 from . import State
-from ..agents import BaseAgent
+from ..agents import Agent
 
 import gym
 from gym import spaces
@@ -18,7 +18,7 @@ class BaseEnv(gym.Env):
     def __init__(self, model: ForwardModel,
                  viewer: Viewer,
                  state: State = None,
-                 agents: list[BaseAgent] = None) -> None:
+                 agents: list[Agent] = None) -> None:
         '''
         Constructs the Base Environment
         '''
@@ -42,7 +42,7 @@ class BaseEnv(gym.Env):
         max_obs = [0] * bss + [0]*12
         self._observation_space = spaces.Box(np.array(min_obs), np.array(max_obs))
 
-    def setAgents(self, new_agents: list[BaseAgent]) -> None:
+    def setAgents(self, new_agents: list[Agent]) -> None:
         self._agents = new_agents
 
     # def reset(self) -> None:

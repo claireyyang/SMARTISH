@@ -4,7 +4,7 @@ Staghunt state holds all of the information about the current state, regardless 
 
 from ..generic import Board
 from typing import List
-from smartish.agents import BaseAgent
+from smartish.agents import Agent
 from typing import Tuple
 from ..generic import State
 from . import StaghuntObservation
@@ -14,14 +14,14 @@ class StaghuntState(State):
     '''
     A staghunt class for holding attributes about State
     '''
-    def __init__(self, board: Board, agents: List[BaseAgent],
+    def __init__(self, board: Board, agents: List[Agent],
                  signals: List[List[bool]], hidden_state: List[List[bool]],
                  step_count: int, done: bool) -> None:
         '''
         Sets the attributes of the state, by holding the board info, agents, and current step count
         '''
         self._board: Board = board
-        self._agents: List[BaseAgent] = agents
+        self._agents: List[Agent] = agents
         self._signals: List[List[bool]] = signals
         self._hidden_state: List[List[bool]] = hidden_state
         self._step_count: int = step_count
@@ -29,7 +29,7 @@ class StaghuntState(State):
 
         super().__init__(board, agents, signals, hidden_state, step_count, done)
 
-    def getObservationFromCurrentState(self, agent: BaseAgent) -> StaghuntObservation:
+    def getObservationFromCurrentState(self, agent: Agent) -> StaghuntObservation:
         '''
         create the observation from the current state for one particular agent
         '''
