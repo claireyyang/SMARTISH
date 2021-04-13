@@ -7,6 +7,8 @@ from ..actions import DiscreteActionSpace
 from . import StaghuntMoveActionSpace
 from . import StaghuntMoveAction
 from enum import IntEnum
+from typing import List, Tuple
+import typing
 
 
 class StaghuntForwardModel(ForwardModel):
@@ -16,24 +18,23 @@ class StaghuntForwardModel(ForwardModel):
     def __init__(self) -> None:
         super.__init__()
 
-    def act(self, state : State, discreteActionSpace : DiscreteActionSpace) -> Action:
+    def act(self, listStates: List[Tuple[State, float]], socialPreferenceActionSpace: SocialPreferenceActionSpace, signalingActionSpace: SignalingActionSpace, moveActionSpace: MoveActionSpace) -> List[Tuple[SignalingAction, SocialPreferenceAction, StaghuntMoveAction]]:
         '''
-        determines whether to call signalingAct, socialPreferenceAct, or staghuntMoveAct
+        call signalingAct, socialPreferenceAct, and staghuntMoveAct for an agent
         '''
-        if state.getStepCount % 3 == 0:
-            return socialPreferenceAct(discreteActionSpace)
-        elif state.getStepCount % 3 == 1:
-            return signalingAct(discreteActionSpace)
-        elif state.getStepCount % 3 == 2:
-            return staghuntMoveAct(discreteActionSpace)
+        # if state.getStepCount % 3 == 0:
+        #     return socialPreferenceAct(discreteActionSpace)
+        # elif state.getStepCount % 3 == 1:
+        #     return signalingAct(discreteActionSpace)
+        # elif state.getStepCount % 3 == 2:
+        #     return staghuntMoveAct(discreteActionSpace)
 
-    def staghuntMoveAct(self, state : State, staghuntMoveActionSpace : StaghuntMoveActionSpace) -> StaghuntMoveAction:
-        '''
-        Return a staghunt move action (where the agent moves on the board)
-        '''
-        // TODO
+        listActions = []
+        # TODO: use the different spaces to figure out the actions we want
 
-    def step(self, state : State, actions: list[IntEnum]) -> State:
+        return listActions
+
+    def step(self, state : State, actions: List[IntEnum]) -> State:
         '''
         Determines whether to call signalingStep, socialPreferenceStep, staghuntMoveStep
         '''
@@ -45,14 +46,14 @@ class StaghuntForwardModel(ForwardModel):
         elif isinstance(action_example, StaghuntMoveAction):
             return staghuntMoveStep(state, actions)
 
-    def staghuntMoveStep(self, state : State, actions: list[StaghuntMoveAction]) -> State:
+    def envSpecificStep(self, state : State, actions: list[StaghuntMoveAction]) -> State:
         '''
         Given staghunt move actions, returns a new state after taking the staghunt move step
         '''
-        // TODO
+        # TODO
 
     def getDone(self, state : State) -> bool:
         '''
         Returns whether the state passed in means that the game is done
         '''
-        // TODO: put in the logic for whether the game is done here, based on the state of the board
+        # TODO: put in the logic for whether the game is done here, based on the state of the board

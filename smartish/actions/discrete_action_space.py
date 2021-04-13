@@ -3,6 +3,8 @@ A module containing discrete action spaces
 '''
 from __future__ import annotations
 from gym import spaces
+
+
 class DiscreteActionSpace:
     '''
     A class representing an iterable discrete action space. An action space

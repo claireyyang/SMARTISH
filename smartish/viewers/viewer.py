@@ -2,7 +2,7 @@
 A class that holds the generic pyglet viewer
 '''
 
-// TODO: import pyglet stuff
+# TODO: import pyglet stuff
 
 class Viewer:
     '''
