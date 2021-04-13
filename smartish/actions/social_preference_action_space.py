@@ -4,8 +4,11 @@ either as the truth or the broadcast. Also contains a SocialPreferenceConversion
 raised if there is an error converting social preference actions to the equivalent social preference
 list of trues and falses.
 '''
-from typing import List, Optional
-from smartish.actions.discrete_action_space import DiscreteActionSpace
+from __future__ import annotations
+from typing import List, Optional, NewType
+from smartish.actions.discrete_action_space import DiscreteActionSpace, Action
+
+
 class SocialPreferenceConversionError(RuntimeError):
     '''
     An error that is raised when there is an issue converting to the social preference list
@@ -49,7 +52,8 @@ class SocialPreferenceActionSpace(DiscreteActionSpace):
         super().__init__(2**(num_agents-1))
         self.num_agents = num_agents
 
-    def convert_to_social_preference_list(self, agent_id: int, action: int) -> List[bool]:
+    def convert_to_social_preference_list(self, agent_id: int, action: SocialPreferenceAction) \
+        -> List[bool]:
         '''
         Convert an action in this discrete action space to a list of social preferences from
         a given agent's perspective.
@@ -77,7 +81,8 @@ class SocialPreferenceActionSpace(DiscreteActionSpace):
                 social_preference_list[idx+idx_adjuster] = True
         return social_preference_list
 
-    def convert_to_social_preference_matrix(self, actions: List[int]) -> List[List[bool]]:
+    def convert_to_social_preference_matrix(self, actions: List[SocialPreferenceAction]) \
+        -> List[List[bool]]:
         '''
         Converts a list of actions to a matrix of boolean social preferences where each row
         is an agent's specified social preference list with all the diagonals set to false
@@ -91,3 +96,33 @@ class SocialPreferenceActionSpace(DiscreteActionSpace):
             social_preference_matrix.append(
                 self.convert_to_social_preference_list(agent_id, action))
         return social_preference_matrix
+
+    def get_equivalent_signaling_action_space(self) -> SignalingActionSpace:
+        '''
+        Returns a new signaling action space designed for the same number of agents
+        as this social preference action space
+        '''
+        return SignalingActionSpace(self.num_agents)
+
+    def get_most_antisocial_action(self) -> SocialPreferenceAction:
+        '''
+        Returns the social preference action that is the most anti-social. That is,
+        the action that has an agent with social preferences for no other agents.
+        '''
+        return SocialPreferenceAction(0)
+
+    def get_most_prosocial_action(self) -> SocialPreferenceAction:
+        '''
+        Returns the social preference action that is the most pro-social. That is,
+        the action that has an agent with social preferences for all the other agents.
+        '''
+        return SocialPreferenceAction(self.action_space_size-1)
+
+# We have two types of social preference actions. The first is a social preference "declaration"
+# action where an agent declares or sets their new social preference. This has been given the
+# name SocialPreferenceAction. The agent can also signal their social preference. This is given
+# the name SignalingAction. The SocialPreferenceActionSpace and SignalingActionSpace are equivalent.
+# Thus, we subtype SignalingAction as a specific type of SocialPreferenceAction for conveinence.
+SocialPreferenceAction = NewType('SocialPreferenceAction', Action)
+SignalingAction = NewType('SignalingAction', SocialPreferenceAction)
+SignalingActionSpace = NewType('SignalingActionSpace', SocialPreferenceActionSpace)
