@@ -10,21 +10,16 @@ class Observation:
     '''
     A generic observation class to be used by agents to reason about their state based on the observable attributes.
     '''
-    def __init__(self, agent_id: int, agent_position: Tuple[int, int], board: Board, signal: List[bool]) -> None:
+    def __init__(self, agent_id: int, board: Board, signal: List[bool]) -> None:
         '''
         Sets the attributes of the observation, which is from the perspective of the agent specified by the id.
-        The agent's position, as well as the signals are observed.
         '''
         self._agent_id: int = agent_id
-        self._agent_position: Tuple[int, int] = agent_position
         self._board: Board = board
         self._signal: List[bool] = signal
 
     def getAgentId(self) -> int:
         return self._agent_id
-
-    def getAgentPosition(self) -> Tuple[int, int]:
-        return self._agent_position
 
     def getBoard(self) -> Board:
         return self._board

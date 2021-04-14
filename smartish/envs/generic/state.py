@@ -60,7 +60,7 @@ class State:
 
     def getObservationFromCurrentState(self, agent: Agent) -> Observation:
         '''
-        create the observation from the current state for one particular agent
+        Gets an observation for a specific agent at this state
         '''
         agent_id: int = agent.getAgentId()
         agent_position: Tuple[int, int] = self._board.getPositionOfId(agent_id)
@@ -70,7 +70,9 @@ class State:
 
     def getObservationsFromCurrentState(self) -> List[Observation]:
         '''
-        create the observation from the current state for one particular agent
+        Gets the observations for a set of agents at this state.
+        The order the agents are passed in should correspond to the
+        order of observations returned.
         '''
         obs_list: List[Observation] = []
         for agent in self._agents:
