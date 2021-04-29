@@ -12,19 +12,19 @@ class Board:
     def __init__(self, board: dict = dict()) -> None:
         self._board: dict = board
 
-    def getBoard(self) -> dict:
+    def get_board(self) -> dict:
         '''
         Return the dictionary that represents the board
         '''
         return self._board
 
-    def setBoard(self, new_board: dict) -> None:
+    def set_board(self, new_board: dict) -> None:
         '''
         Return the dictionary that represents the board
         '''
         self._board = new_board
 
-    def getPositionOfId(self, id: int) -> Tuple[int, int]:
+    def get_position_of_id(self, id: int) -> Tuple[int, int]:
         '''
         Return the position in the board of the character specified in the id
         '''

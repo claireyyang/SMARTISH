@@ -1,8 +1,7 @@
 '''
 A class containing the staghunt reward structure.
 '''
-
-from ..generic import Reward
+from .. import Reward
 from . import StaghuntState
 from smartish.agents import Agent
 

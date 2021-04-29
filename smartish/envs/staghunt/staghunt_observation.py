@@ -2,7 +2,7 @@
 Staghunt observation holds all of the information that is observable within the simulation. It's created by the state exclusively. The agents use the observations to reason, so only getters are needed.
 '''
 
-from ..generic import Observation
+from .. import Observation
 from . import StaghuntBoard
 from typing import List, Tuple
 

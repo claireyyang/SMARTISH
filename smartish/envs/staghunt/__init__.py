@@ -11,3 +11,5 @@ from smartish.envs.staghunt.move_action_space import (StaghuntMoveActionSpace,
 from smartish.envs.staghunt.staghunt_state import StaghuntState
 from smartish.envs.staghunt.staghunt_observation import StaghuntObservation
 from smartish.envs.staghunt.staghunt_board import StaghuntBoard
+from smartish.envs.staghunt.staghunt_reward import StaghuntReward
+from smartish.envs.staghunt.staghunt_state import StaghuntState

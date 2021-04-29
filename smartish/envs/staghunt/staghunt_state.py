@@ -6,7 +6,7 @@ from . import StaghuntBoard
 from typing import List
 from smartish.agents import Agent
 from typing import Tuple
-from ..generic import State
+from .. import State
 from . import StaghuntObservation
 
 

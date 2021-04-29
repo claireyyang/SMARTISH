@@ -1,11 +1,9 @@
 '''
 A staghunt-specific forward model that specifies how the agents move on the board
 '''
-from ..generic import State
-from ..generic import ForwardModel
+from .. import State, ForwardModel
 from ..actions import DiscreteActionSpace
-from . import StaghuntMoveActionSpace
-from . import StaghuntMoveAction
+from . import StaghuntMoveActionSpace, StaghuntMoveAction
 from enum import IntEnum
 from typing import List, Tuple
 import typing

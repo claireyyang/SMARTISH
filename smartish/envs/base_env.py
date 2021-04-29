@@ -29,9 +29,9 @@ class BaseEnv(gym.Env):
         self._agents = agents
 
         self._step_count = 0
-        self.setObservationSpace()
+        self.set_observation_space()
 
-    def setObservationSpace(self) -> None:
+    def set_observation_space(self) -> None:
         '''
         Set an observation space for the environment
         '''
@@ -42,7 +42,7 @@ class BaseEnv(gym.Env):
         max_obs = [0] * bss + [0]*12
         self._observation_space = spaces.Box(np.array(min_obs), np.array(max_obs))
 
-    def setAgents(self, new_agents: list[Agent]) -> None:
+    def set_agents(self, new_agents: list[Agent]) -> None:
         self._agents = new_agents
 
     # def reset(self) -> None:

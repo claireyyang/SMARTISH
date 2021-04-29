@@ -63,7 +63,7 @@ class State:
         Gets an observation for a specific agent at this state
         '''
         agent_id: int = agent.getAgentId()
-        agent_position: Tuple[int, int] = self._board.getPositionOfId(agent_id)
+        agent_position: Tuple[int, int] = self._board.get_position_of_id(agent_id)
         signal: List[bool] = self.getSignalsOfId(agent_id)
         obs: Observation = Observation(agent_id, agent_position, self._board, signal)
         return obs
@@ -77,7 +77,7 @@ class State:
         obs_list: List[Observation] = []
         for agent in self._agents:
             agent_id: int = agent.getAgentId()
-            agent_position: Tuple[int, int] = self._board.getPositionOfId(agent_id)
+            agent_position: Tuple[int, int] = self._board.get_position_of_id(agent_id)
             signal: List[bool] = self.getSignalsOfId(agent_id)
             obs: Observation = Observation(agent_id, agent_position, self._board, signal)
             obs_list.append(obs)

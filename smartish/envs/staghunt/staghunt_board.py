@@ -3,7 +3,7 @@ A class containing the staghunt board that is set by and updated by the state ex
 '''
 
 from typing import Tuple, List
-from ..generic import Board
+from .. import Board
 
 
 class StaghuntBoard(Board):
