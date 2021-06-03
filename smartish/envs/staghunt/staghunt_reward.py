@@ -19,4 +19,6 @@ class StaghuntReward(Reward):
         Calculate the reward amount based on the state and the agent. Sets the reward_amount in the class.
         '''
         reward = -1
+
+
         self._reward_amount = reward

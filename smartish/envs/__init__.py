@@ -12,5 +12,6 @@ from smartish.envs.forward_model import ForwardModel
 from smartish.envs.observation import Observation
 from smartish.envs.reward import Reward
 from smartish.envs.state import State
+from smartish.envs.pseudo_reward import PseudoReward
 
 __all__ = ["Observation"]
